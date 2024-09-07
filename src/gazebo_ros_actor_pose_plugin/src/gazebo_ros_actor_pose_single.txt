@@ -1,0 +1,57 @@
+#include <gazebo/gazebo.hh>
+#include <gazebo/physics/physics.hh>
+#include <rclcpp/rclcpp.hpp>
+#include <geometry_msgs/msg/pose_stamped.hpp>
+
+namespace gazebo_plugins
+{
+    class ActorPosePlugin : public gazebo::ModelPlugin
+    {
+    public:
+        void Load(gazebo::physics::ModelPtr model, sdf::ElementPtr sdf) override
+        {
+            this->model = model;
+            // Initialize ROS node
+            rclcpp::init(0, nullptr);
+            this->node = rclcpp::Node::make_shared("actor_pose_publisher_node");
+            this->publisher = this->node->create_publisher<geometry_msgs::msg::PoseStamped>("actor_pose", 10);
+
+            // Update event connection
+            this->updateConnection = gazebo::event::Events::ConnectWorldUpdateBegin(
+                std::bind(&ActorPosePlugin::OnUpdate, this));
+        }
+
+        void OnUpdate()
+        {
+            gazebo::physics::ActorPtr actor = boost::dynamic_pointer_cast<gazebo::physics::Actor>(this->model);
+            if (!actor)
+            {
+                RCLCPP_ERROR(this->node->get_logger(), "ActorPosePlugin must be attached to an actor.");
+                return;
+            }
+
+            auto pose = actor->WorldPose();
+            geometry_msgs::msg::PoseStamped pose_msg;
+            pose_msg.header.frame_id = "world";
+            pose_msg.header.stamp = this->node->get_clock()->now();
+            pose_msg.pose.position.x = pose.Pos().X();
+            pose_msg.pose.position.y = pose.Pos().Y();
+            pose_msg.pose.position.z = pose.Pos().Z();
+            pose_msg.pose.orientation.x = pose.Rot().X();
+            pose_msg.pose.orientation.y = pose.Rot().Y();
+            pose_msg.pose.orientation.z = pose.Rot().Z();
+            pose_msg.pose.orientation.w = pose.Rot().W();
+
+            this->publisher->publish(pose_msg);
+        }
+
+    private:
+        gazebo::physics::ModelPtr model;
+        gazebo::event::ConnectionPtr updateConnection;
+        rclcpp::Node::SharedPtr node;
+        rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr publisher;
+    };
+
+    // Register this plugin with the simulator
+    GZ_REGISTER_MODEL_PLUGIN(ActorPosePlugin)
+}

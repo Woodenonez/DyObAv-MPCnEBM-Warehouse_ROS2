@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>gazebo_worlds</name>
+  <version>0.0.0</version>
+  <description>The gazebo_worlds package</description>
+  <maintainer email="hadi@todo.todo">hadi</maintainer>
+  <license>MIT</license>
+
+  <!-- <buildtool_depend>catkin</buildtool_depend> -->
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <!-- <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+  <test_depend>ament_mypy</test_depend> -->
+
+  <build_depend>gazebo_plugins</build_depend>
+  <build_depend>gazebo_ros</build_depend>
+  <build_export_depend>gazebo_plugins</build_export_depend>
+  <build_export_depend>gazebo_ros</build_export_depend>
+  <exec_depend>gazebo_plugins</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+
+<export>
+  <gazebo_ros gazebo_model_path="${prefix}/models"/>
+</export>
+
+</package>

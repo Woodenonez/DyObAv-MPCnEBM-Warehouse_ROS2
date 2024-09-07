@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<robot name="mir" xmlns:xacro="http://ros.org/wiki/xacro" >
+
+  <!-- To get a URDF file, run: `ros2 run xacro xacro mir.urdf.xacro > mir.urdf` -->
+
+  <!-- Namespace (differentiate different entities) (should not be empty) -->
+  <xacro:arg name="namespace" default="mirX" />
+
+  <!-- Include MiR base -->
+  <xacro:include filename="$(find mir_description)/urdf/include/mir_v1.urdf.xacro" />
+  <xacro:include filename="$(find mir_description)/urdf/include/common.gazebo.xacro" />
+  
+  <!-- Load model -->
+  <xacro:mir namespace="$(arg namespace)"/>
+
+  <!-- Footprint -->
+  <link name="$(arg namespace)/base_footprint" />
+  <joint name="$(arg namespace)/base_joint" type="fixed">
+    <parent link="$(arg namespace)/base_footprint" />
+    <child link="$(arg namespace)/base_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <!-- Controller option 1: Gazebo controller plugin -->
+  <!-- <xacro:controller_plugin_gazebo robot_namespace=$(arg namespace)/> -->
+
+  <!-- Controller option 2: Gazebo diffdrive plugin (mir.gazebo.xacro) -->
+  <xacro:diff_controller_plugin_gazebo namespace="$(arg namespace)"
+    left_wheel_joint="left_wheel_joint"
+    right_wheel_joint="right_wheel_joint"
+    wheel_separation="${2*act_wheel_dy}"
+    wheel_radius="${act_wheel_radius}"/>
+ 
+</robot>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot name="zmr_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- To get a URDF file, run: `ros2 run xacro xacro robot.urdf.xacro > robot.urdf` -->
+
+  <!-- Namespace (used to differentiate different robots) -->
+  <xacro:arg name="namespace" default="zmr_X"/>
+
+  <!-- Included the model -->
+  <xacro:include filename="$(find zmr_description)/urdf/materials/model.urdf.xacro" />
+
+  <!-- Load the model -->
+  <xacro:zmr_model namespace="$(arg namespace)"/>
+
+  <!-- Robot Footprint link and joint -->
+  <link name="$(arg namespace)/base_footprint"/>
+  <joint name="$(arg namespace)/base_joint" type="fixed">
+    <parent link="$(arg namespace)/base_footprint"/>
+    <child link="$(arg namespace)/base_link"/>
+    <origin xyz="0.0 0.0 0.092" rpy="0 0 0"/> <!-- 0.092=0.016*2+0.12/2, caster and main body -->
+  </joint>
+
+</robot>

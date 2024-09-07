@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<robot>
+
+  <!-- Material colors -->
+  <material name="blue_body">
+    <color rgba="0.1 0.1 1.0 0.8" />
+  </material>
+  <material name="black_laser">
+    <color rgba="0.0 0.0 0.0 1.0" />
+  </material>
+  <material name="black_wheel">
+    <color rgba="0.0 0.0 0.0 0.8" />
+  </material>
+  <material name="black_caster">
+    <color rgba="0.0 0.0 0.0 1.0" />
+  </material>
+
+</robot>

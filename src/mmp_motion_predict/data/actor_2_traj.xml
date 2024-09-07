@@ -1,0 +1,76 @@
+<trajectory id="0" type="walking">
+    <waypoint>
+    <time>0</time>
+    <pose>1.5 -10 0.0 0 0 1.57</pose>
+    </waypoint>
+    <waypoint>
+    <time>6</time>
+    <pose>1.5 -5 0.0 0 0 1.57</pose>
+    </waypoint>
+    <!-- Turn-->
+    <waypoint>
+    <time>8</time>
+    <pose>3.5 -3 0.0 0 0 0</pose>
+    </waypoint>
+    <waypoint>
+    <time>11</time>
+    <pose>6 -3 0.0 0 0 0</pose>
+    </waypoint>
+    <!-- Turn-->
+    <waypoint>
+    <time>13</time>
+    <pose>8 -1 0.0 0 0 1.57</pose>
+    </waypoint>
+    <waypoint>
+    <time>15</time>
+    <pose>8 1.5 0.0 0 0 1.57</pose>
+    </waypoint>
+    <!-- Turn-->
+    <waypoint>
+    <time>17</time>
+    <pose>6.5 2.5 0.0 0 0 3.14</pose>
+    </waypoint>
+    <waypoint>
+    <time>22</time>
+    <pose>1 2 0.0 0 0 3.14</pose>
+    </waypoint>
+    <!-- Turn-->
+    <waypoint>
+    <time>23</time>
+    <pose>0 1.5 0.0 0 0 4.7</pose>
+    </waypoint>
+    <!-- Turn-->
+    <waypoint>
+    <time>25</time>
+    <pose>-2 0.5 0.0 0 0 3.14</pose>
+    </waypoint>
+    <!-- Turn-->
+    <waypoint>
+    <time>27</time>
+    <pose>-3 2.5 0.0 0 0 1.57</pose>
+    </waypoint>
+    <waypoint>
+    <time>33</time>
+    <pose>-3 7 0.0 0 0 1.57</pose>
+    </waypoint>
+    <!-- Turn-->
+    <waypoint>
+    <time>35</time>
+    <pose>-3 7 0.0 0 0 4.7</pose>
+    </waypoint>
+    <waypoint>
+    <time>41</time>
+    <pose>-3 -3 0.0 0 0 4.7</pose>
+    </waypoint>
+    <!-- Turn-->
+    <waypoint>
+    <time>44</time>
+    <pose>-2 -6 0.0 0 0 6.28</pose>
+    </waypoint>
+    <waypoint>
+    <time>55</time>
+    <pose>9 -6 0.0 0 0 6.28</pose>
+    </waypoint>
+
+
+</trajectory>

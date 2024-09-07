@@ -1,0 +1,4 @@
+int64 robot_id
+
+---
+map_interfaces/GeometricMap inflated_map

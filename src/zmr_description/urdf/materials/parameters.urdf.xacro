@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Parameters -->
+  <!-- Main body cylinder -->
+  <xacro:property name="body_cylinder_length" value="0.12" /> <!-- [m] -->
+  <xacro:property name="body_cylinder_radius" value="0.10" /> <!-- [m] -->
+  <xacro:property name="body_cylinder_mass" value="0.2" /> <!-- [kg] -->
+  <!-- Laser cylinder -->
+  <xacro:property name="laser_cylinder_length" value="0.02" /> <!-- [m] -->
+  <xacro:property name="laser_cylinder_radius" value="0.02" /> <!-- [m] -->
+  <xacro:property name="laser_cylinder_mass" value="0.1" /> <!-- [kg] -->
+  <!-- IMU box -->
+  <xacro:property name="imu_box_length" value="0.02" /> <!-- [m] -->
+  <xacro:property name="imu_box_width" value="0.02" /> <!-- [m] -->
+  <xacro:property name="imu_box_height" value="0.02" /> <!-- [m] -->
+  <xacro:property name="imu_box_mass" value="0.1" /> <!-- [kg] -->
+  <!-- Wheel cylinder -->
+  <xacro:property name="wheel_cylinder_length" value="0.04" /> <!-- [m] -->
+  <xacro:property name="wheel_cylinder_radius" value="0.032" /> <!-- [m] -->
+  <xacro:property name="wheel_cylinder_mass" value="0.2" /> <!-- [kg] -->
+  <!-- Caster sphere -->
+  <xacro:property name="caster_sphere_radius" value="0.016" /> <!-- [m] -->
+  <xacro:property name="caster_sphere_mass" value="0.02" /> <!-- [kg] -->
+
+  <!-- Inertias [kg*m^2] (wikipedia.org/wiki/List_of_moments_of_inertia) -->
+  <xacro:macro name="box_inertia" params="m x y z">
+    <inertia  ixx="${m*(y*y+z*z)/12}" ixy = "0" ixz = "0"
+              iyy="${m*(x*x+z*z)/12}" iyz = "0"
+              izz="${m*(x*x+z*z)/12}" />
+  </xacro:macro>
+  <xacro:macro name="cylinder_inertia" params="m r h">
+    <inertia  ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
+              iyy="${m*(3*r*r+h*h)/12}" iyz = "0"
+              izz="${m*r*r/2}" /> 
+  </xacro:macro>
+  <xacro:macro name="sphere_inertia" params="m r">
+    <inertia  ixx="${2*m*r*r/5}" ixy = "0" ixz = "0"
+              iyy="${2*m*r*r/5}" iyz = "0"
+              izz="${2*m*r*r/5}" />
+  </xacro:macro>
+
+</robot>

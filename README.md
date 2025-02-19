@@ -1,4 +1,10 @@
-ONGOING
+This code is tested under [ROS 2 Humble](https://docs.ros.org/en/humble/index.html).
+
+The warehouse Gazebo world is based on [AWS Small Warehouse](https://github.com/aws-robotics/aws-robomaker-small-warehouse-world).
+
+The MiR mobile robot modeling is based on [MiR Robot](https://github.com/DFKI-NI/mir_robot).
+
+Please follow the attached licenses and contact me if there is any problem with them.
 
 ## Quick start
 ### MPC build

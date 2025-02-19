@@ -1,9 +1,11 @@
-This code is tested under [ROS 2 Humble](https://docs.ros.org/en/humble/index.html).
+# Dynamic Obstacle Avoidance: One-shot Prediction (EBM) and Control (MPC)
+This repository contains the ROS 2 code for the corresponding [Python counterpart](https://github.com/Woodenonez/DyObAv-MPCnEBM-Warehouse).
+Please find more descriptions and related publications there.
 
-The warehouse Gazebo world is based on [AWS Small Warehouse](https://github.com/aws-robotics/aws-robomaker-small-warehouse-world).
-
-The MiR mobile robot modeling is based on [MiR Robot](https://github.com/DFKI-NI/mir_robot).
-
+Before start:
+- This code is tested under [ROS 2 Humble](https://docs.ros.org/en/humble/index.html).
+- The warehouse Gazebo world is based on [AWS Small Warehouse](https://github.com/aws-robotics/aws-robomaker-small-warehouse-world).
+- The MiR mobile robot modeling is based on [MiR Robot](https://github.com/DFKI-NI/mir_robot).
 Please follow the attached licenses and contact me if there is any problem with them.
 
 ## Quick start
